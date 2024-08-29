@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Shop</title>
 </head>
-<body>
+<body> 
+    {% if user.is_authenticated%}
+        Hola, {{ user.username }}
+        <form action="{% url "logout" %}" method='post'>
+            {% csrf_token %}
+            <button type="submit">Cerrar sesion</button>
+        </form>
+    {% else %}
+        <a href="{% url "login"%}">login</a>
+    {%endif%}
     {% block content %}{% endblock content %}
 </body>
 </html>
