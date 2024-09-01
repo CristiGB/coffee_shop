@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    list-style: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.welcome-header_name{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar ul , .navbar{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #251c1c;
+}
+
+.navbar .navbar_list a:hover {
+    color: #915b4d;
+}
+.navbar_right{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 10px;
+}
+.btn_logout{
+    outline: none;
+    border: none;
+}
+
+.btn_login, .btn_logout {
+    padding: 10px 15px;
+    background-color: rgb(59, 23, 20);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color ease-in-out .3s;
+}
+.btn_login a, .btn_logout {
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn_login:hover, .btn_logout:hover{
+    background-color: rgb(217, 145, 111) ;
+}
+
+
+.content{
+    flex-grow: 1;
+}
+
+/*------------footer------------*/
+
+.footer{
+    padding: 0 24px;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-start: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: #e9e1e1;
+    background-color: #463c3c;
+}
+
+.footer__copy{
+    font-size: 14px;
+}
+
+.socialMedia{
+    display: flex;
+    align-items: center;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    justify-content: center;
+    column-gap: .5rem;
+    color: rgb(233, 225, 225);
+    font-size: 20px;
+}
+
+.socialMedia img{
+    filter: contrast(.5);
+}
+.socialMedia .dotch{
+    font-size: 5px;
+    opacity: .5;
+    background-color: #584b46;
+}
+
+.socialMedia li:hover{
+    cursor: pointer;
+}
+
+.socialMedia li a:visited{
+    color: #ebe5e5;
+}

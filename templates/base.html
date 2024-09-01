@@ -1,20 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/base_styles.css' %}">
+    {% block styles %}{% endblock styles %}
     <title>Coffee Shop</title>
 </head>
 <body> 
-    {% if user.is_authenticated%}
-        Hola, {{ user.username }}
-        <form action="{% url "logout" %}" method='post'>
-            {% csrf_token %}
-            <button type="submit">Cerrar sesion</button>
-        </form>
-    {% else %}
-        <a href="{% url "login"%}">login</a>
-    {%endif%}
-    {% block content %}{% endblock content %}
+    <header>
+       <div class="logo">
+            C
+            <i class="fa-solid fa-mug-saucer"></i>
+            FEE
+        </div>
+        <p class="welcome-header_name">
+            {% if user.is_authenticated%}
+                Hola, {{ user.username }}
+            {%endif%}
+        </p>
+        <nav class="navbar">
+            <ul class="navbar_list">
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="{% url "list_product"%}">Menú</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            <div class="navbar_right">
+                {% if user.is_authenticated%}
+                    <div><a href="{% url "my-order"%}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a></div>
+                    <form action="{% url "logout" %}" method='post'>
+                        {% csrf_token %}
+                        <button class="btn_logout" type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
+                    </form>
+                {% else %}
+                    <div class="btn_login">
+                        <a href="{% url "login"%}">Iniciar Sesion</a>
+                    </div>
+                {%endif%}
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <footer class="footer section container">
+        <span class="footer__copy">
+             &#169; CristiGB &#x2661; 2024 
+        </span>
+
+        <ul class="socialMedia">
+            <li>
+                <a href="https://github.com/CristiGB">
+                    <i class="fa-brands fa-github"></i>
+                </a>            
+            </li>
+            <li class="dotch"><i class="fa-solid fa-circle"></i></li>
+            <li>
+                <a href="https://www.linkedin.com/in/isabel-gomez-balvin/">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
 </body>
+
 </html>

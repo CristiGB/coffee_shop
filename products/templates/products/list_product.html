@@ -1,18 +1,44 @@
 {% extends "base.html" %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock styles %}
 {% block content %}
-
-<h1>Lista de productos<h1>
-    <ul>
+<section>
+    <div class="section-title">
+        <h1>COFETO</h1>
+        <h2>Tu dosis diaria de energía y buena onda</h2>
+    </div>
+    {% comment %} <p>Nuestros cafes especiales</p> {% endcomment %}
+    <ul class="list_product">
         {% for product in products %}
-            <li>
-                {{product.name}}
-                <p>{{product.price}} $</p>
+            <li class="product_card">
                 {% if  product.photo%}
-                    <img src="{{product.photo.url}}" alt="{{product.name}}" style="max-height: 100px;">
+                    <div class="container_product-photo">
+                        <div class="card-shadow"></div>
+                        <img class="product-photo" src="{{product.photo.url}}" alt="{{product.name}}" >
+                    </div>
                 {% endif %}
+                <p class="product-name">{{product.name}}</p>
+                <p class="product-description"> {{product.description}}</p>
+                <div class="add_product">
+                    <div class="product-price"><p>precio: </p>{{product.price}} $</div>
+
+                    <form action="{% url "add_products" %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="product" value="{{product.id}}">
+                        <button class="btn_add-product">Añadir <i class="fa-solid fa-bag-shopping"></i></button>
+                    </form>
+                    
+                </div>
+                
             <li>
+        {% empty %}
+            <li>No hay productos</li>
+
         {% endfor %}
         
     </ul>
+</section>
 
 {% endblock content %}

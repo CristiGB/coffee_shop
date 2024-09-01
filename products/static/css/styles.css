@@ -1,0 +1,118 @@
+section{
+    text-align: center;
+    margin: 0 3rem;
+}
+.section-title{
+    margin: 1rem 3rem;
+    padding-block-end: 1rem;
+    text-align: end;
+}
+
+.section-title h1{
+    font-size: 50px;
+    font-weight: 900;
+    -webkit-background-clip: text;
+    background: linear-gradient(90deg, #d1734f 70%, #241b1b 100%);
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+section p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #744433;
+}
+
+.list_product{
+    margin: 25px 30px;
+    list-style: none;
+}
+
+.product_card{
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 25vw;
+    background-color: #f5eee5;
+    border-radius: 12px;
+    border: 1px solid #281a1a88;
+}
+
+.container_product-photo{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-shadow{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #7c5353;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 25px #eb9c76;
+}
+
+.product-photo{
+    max-width: 80%;
+    z-index: 10;
+}
+
+.product-name{
+    color: #281a1a;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #281a1a;
+}
+
+.product-description{
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.add_product{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-price{
+    font-size: 16px;
+    font-weight: 600;
+    color: #3c312e;
+}
+
+.product-price  p{
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+}
+
+.add_product .product_card > p{
+    text-align: center;
+}
+
+.btn_add-product{
+    padding: 11px 18px;
+    margin: 0 8px;
+    background-color: #3e2e2e;
+    color: #f7ece9;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn_add-product:hover{
+    cursor: pointer;
+    background-color: #221c1d;
+    color: #fff;
+}
