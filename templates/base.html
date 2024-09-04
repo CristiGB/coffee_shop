@@ -9,12 +9,12 @@
     {% block styles %}{% endblock styles %}
     <title>Coffee Shop</title>
 </head>
-<body> 
+<body>
     <header>
        <div class="logo">
-            C
+            
             <i class="fa-solid fa-mug-saucer"></i>
-            FEE
+            
         </div>
         <p class="welcome-header_name">
             {% if user.is_authenticated%}
@@ -23,13 +23,12 @@
         </p>
         <nav class="navbar">
             <ul class="navbar_list">
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="{% url "list_product"%}">Menú</a></li>
                 <li><a href="#">Contacto</a></li>
+                <li><a href="{% url "list_product"%}">Menú</a></li>
             </ul>
             <div class="navbar_right">
                 {% if user.is_authenticated%}
-                    <div><a href="{% url "my-order"%}">
+                    <div class="icon-cart"><a href="{% url "my-order"%}">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a></div>
                     <form action="{% url "logout" %}" method='post'>
@@ -67,6 +66,8 @@
             </li>
         </ul>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block scripts %}{% endblock scripts %}
 </body>
 
 </html>

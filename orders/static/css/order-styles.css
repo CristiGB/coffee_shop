@@ -1,0 +1,190 @@
+.section-my-order{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.order-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    min-width: 65%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.cart-titles{
+    padding: 10px;
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.cart-titles > p{
+    padding-inline-start: 10px;
+}
+
+.product_order-card {
+    padding: 10px;
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 15px;
+    background-color: #fffdfd;
+    box-shadow: 1px 4px 9px 0px #a794948c;
+    border-radius: 20px;
+}
+
+.product-detail, .edit-quantity, .product_order-actions,
+.cart-titles > div{
+    display: flex;
+    align-items: center;
+}
+
+.product-detail{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-photo{
+    max-width: 6rem;
+    max-height: 6rem;
+}
+
+.card-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.product_order-actions, .cart-titles > div{
+    min-width: 60%;
+    margin: 5px 10px;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+
+.product_order-quantity{
+    width: 2rem;
+    margin: 0 6px;
+    padding: 3px;
+    text-align: center;
+    background-color: #c7c0c099;
+    border-radius: 4px;
+}
+
+.cart-titles div p, .product_order-actions > div, .product_order-actions p,
+.product_order-actions form{
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.edit-quantity > i:hover, .btn-delete:hover{
+    cursor: pointer;
+    color: #663636;
+}
+
+.btn-delete{
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+
+/*------------------------ checkout---------------------------*/
+
+.checkout{
+    margin: 20px;
+    padding: 24px 30px;
+    /* width: 35%; */
+    background-color: #e6e6e9;
+    border-radius: 4px;
+}
+.checkout > ul{
+    border-block-end: 1px dashed #9b92ab;
+}
+
+.checkout-detail > input{
+    padding: 8px;
+    width: 30%;
+    border: none;
+    outline: 1px solid #784e3e;
+    border-radius: 8px;
+}
+.checkout-detail{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #503939;
+}
+
+.checkout-detail:nth-child(3) p:nth-of-type(2) {
+   font-size: 10px;
+}
+
+.checkout-total{
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a1b1b;
+}
+
+.btn-order{
+    padding: 0.5rem 2rem;
+    margin-inline-start: auto;
+    display: flex;
+    margin-block-start: 20px;
+    background: linear-gradient(90deg, #cf9970 0%, #201313 100%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    transition:  background .3s;
+}
+
+.btn-order:hover{
+    cursor: pointer;
+    background: linear-gradient(90deg, #cb8460 0%, #140d0d 100%);
+}
+
+.order-date{
+    margin-inline-end: 24px;
+    text-align: end;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* ---------------MEDIA QUERIES-------------- */
+
+/* Mediano (MD) */
+@media (min-width: 768px) {
+    .checkout{
+        margin: 1rem 2rem;
+    }
+}
+
+@media (min-width: 992px){
+    .section-my-order {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .checkout{
+        width: 35%;
+        margin: 1.5rem;
+    }
+
+    .order-list{
+        width: 65%;
+    }
+}

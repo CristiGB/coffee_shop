@@ -1,16 +1,76 @@
 {% extends "base.html" %}
-
+{% block styles %}
+    {% load static %}
+    {% load extra_filters %}
+    <link rel="stylesheet" href="{% static 'css/order-styles.css' %}">
+{% endblock styles %}
 {% block content %}
-{{ order.user.username }}
-{{ order.order_date|date }}
 
-{% for product_order in order.orderproduct_set.all %}
-    {{ product_order.product.name }}
-    {{ product_order.product.price }}
+<h1></h1>
 
-{% empty %}
-    No hay productos en tu orden
-
-{% endfor %}
-
+<section class="section-my-order">
+    <ul class="order-list">
+        <li class="cart-titles">
+            <p>Producto</p>
+            <div>
+                <p>Cantidad</p>
+                <p>precio total</p>
+                <p>Eliminar</p>
+            </div>
+        </li>
+        {% for product_order in order.orderproduct_set.all %}
+        <li class="product_order-card">
+            <div class="product-detail">
+                <div class="card-photo">
+                    <img class="product-photo" src=" {{product_order.product.photo.url}}" alt="{{product.name}}" >
+                </div>
+                {{product_order.product.name}}
+            </div>
+            <div class="product_order-actions">
+                <div class="edit-quantity" data-product-id="{{ product_order.id }}">
+                    <i class="fa-solid fa-circle-minus"></i>
+                    <div class="product_order-quantity">{{product_order.quantity}}</div>
+                    <i class="fa-solid fa-circle-plus"></i>
+                </div>
+                <p class="product-total-price">$ {{ product_order.total_price }}</p>
+                <form action="{% url 'delete_product' product_order.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-delete"> <i class="fa-solid fa-trash"></i> </button>
+                </form>
+    
+            </div>
+        </li>
+    
+    {% empty %}
+        No hay productos en tu orden
+    
+    {% endfor %}
+    </ul>
+    
+    <div class="checkout">
+        <ul>
+            <li><h3>Checkout</h3></li>
+            <li class="checkout-detail"><p>sub total:</p> <p class="total-price">{{ total }} $</p></li>
+            <li class="checkout-detail"><p>codigo:</p> <p>*solo por decoracion</p><input> </li>
+            <li class="checkout-detail checkout-total"><p>total:</p> <p class="total-price">{{ total }} $</p></li>
+        </ul>
+        <button type="submit" class="btn-order">Ordenar</button>
+    </div>
+</section>
+{% comment %} {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+                <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %} {% endcomment %}
+<p class="order-date">{{ order.order_date|date }}</p>
 {% endblock content %}
+
+{% block scripts %}
+    <script >
+        const updateQuantityUrl = "{% url 'update_quantity' %}";
+    </script>
+    <script src="{% static 'js/update_quantity.js' %}" ></script>
+{% endblock scripts %}
+

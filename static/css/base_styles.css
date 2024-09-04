@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,500;0,600;0,700;0,900;1,300;1,500;1,600;1,700;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 }
 body {
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: "Fira Sans", sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -21,14 +23,27 @@ header {
     background-color: transparent;
 }
 
+
+/*------------------header--------------------*/
 .logo {
+    flex: 1;
     font-size: 24px;
     font-weight: bold;
 }
 
 .welcome-header_name{
-    font-size: 24px;
-    font-weight: 600;
+    scale: 0;
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    transition: scale .3s;
+}
+
+.navbar{
+    flex: 1;
+    justify-content: end;
 }
 
 .navbar ul , .navbar{
@@ -52,18 +67,30 @@ header {
     gap: 15px;
     margin-left: 10px;
 }
+
+.icon-cart{
+    padding: 8px;
+    background-color: #e5dad6a6;
+    border-radius: 8px;
+}
+
 .btn_logout{
     outline: none;
     border: none;
 }
 
 .btn_login, .btn_logout {
-    padding: 10px 15px;
-    background-color: rgb(59, 23, 20);
-    border-radius: 24px;
+    padding: 15px;
+    background-color: rgb(30 22 22);
+    border-radius: 50%;
     cursor: pointer;
     transition: background-color ease-in-out .3s;
 }
+
+.btn_login{
+    border-radius: 24px;
+}
+
 .btn_login a, .btn_logout {
     color: #fff;
     font-weight: 600;
@@ -124,4 +151,12 @@ header {
 
 .socialMedia li a:visited{
     color: #ebe5e5;
+}
+
+/* ---------------MEDIA QUERIESSSSS--------------- */
+/* Mediano (MD) */
+@media (min-width: 768px) {
+    .welcome-header_name{
+        scale: 1;
+    }
 }

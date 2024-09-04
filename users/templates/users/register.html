@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login-styles.css' %}">
+{% endblock styles %}
+{% block content %}
+    {% comment %} <p>KEEP CALM AND DRINK COFFEE</p> {% endcomment %}
+    <div class="form-sign-in">
+        <p>Registro</p>
+
+        <form action="" method='post'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn-form" type="submit">Registrarse</button>
+        </form>
+        <p class="switch-form-user">¿Ya tienes cuenta? <a href="{% url "login" %}">Inicia sesion</a></p>
+    </div>
+    <div class="container-splash">
+        <div class="coffee-splash"></div>
+    </div>
+{% endblock content %}

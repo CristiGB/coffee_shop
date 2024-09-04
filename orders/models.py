@@ -18,3 +18,6 @@ class OrderProduct(models.Model):
 
     def __str__(self):
         return f"{self.order} - {self.product}"
+    @property
+    def total_price(self):
+        return self.product.price * self.quantity
